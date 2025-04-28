@@ -1,5 +1,6 @@
 'use client'
 import { Button, Stack, Typography } from "@mui/material"
+import FileUploadIcon from "@mui/icons-material/FileUpload"
 import { useState } from "react"
 
 interface UploadButtonProps {
@@ -22,6 +23,7 @@ export const UploadButton = ({ header }: UploadButtonProps) => {
                 <Button
                     variant="contained"
                     component="label"
+                    startIcon={<FileUploadIcon />}
                 >
                     Upload File
                     <input
