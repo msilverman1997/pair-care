@@ -18,6 +18,7 @@ export const InputPage = () => {
   const [deductibleLeft, setDeductibleLeft] = useState<string>("")
   const [outOfPocketLeft, setOutOfPocketLeft] = useState<string>("")
   const [copayAmount, setCopayAmount] = useState<string>("")
+  const [coinsuranceAmount, setCoinsuranceAmount] = useState<string>("")
   const [descriptionOfVisit, setDescriptionOfVisit] = useState<string>("")
   const [response, setResponse] = useState<string>("")
 
@@ -37,10 +38,12 @@ export const InputPage = () => {
         setOutOfPocketLeft={setOutOfPocketLeft}
         copayAmount={copayAmount}
         setCopayAmount={setCopayAmount}
+        coinsuranceAmount={coinsuranceAmount}
+        setCoinsuranceAmount={setCoinsuranceAmount}
         descriptionOfVisit={descriptionOfVisit}
         setDescriptionOfVisit={setDescriptionOfVisit} />
       <Button variant="contained" sx={{ mt: 4 }} onClick={getGeminiResponse}>
-        Submit
+        Show me how to lower my bill!
       </Button>
       <Typography>{response ?? 'No Response Yet'}</Typography>
     </Stack>
