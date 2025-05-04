@@ -11,7 +11,9 @@ import { get } from "http"
 
 export const InputPage = () => {
 
-  console.log('Api Key:', process.env.NEXT_PUBLIC_GEMINI_API_KEY)
+  //TODO: File provider that cam contain multiple files
+  const [file, setFile] = useState<File | undefined>()
+  const [file2, setFile2] = useState<File | undefined>()
 
   const [deductibleLeft, setDeductibleLeft] = useState<string>("")
   const [outOfPocketLeft, setOutOfPocketLeft] = useState<string>("")
@@ -20,15 +22,15 @@ export const InputPage = () => {
   const [response, setResponse] = useState<string>("")
 
   const getGeminiResponse = async () => {
-    const response = await askGemini()
+    const response = await askGemini(file)
     setResponse(response)
   }
 
   return (
     <Stack px={8} py={4}>
       <UploadCard />
-      <UploadButton header="EOB" />
-      <UploadButton header="Itemized Bill" />
+      <UploadButton header="EOB" file={file} setFile={setFile}/>
+      <UploadButton header="Itemized Bill" file={file2} setFile={setFile2}/>
       <InsuranceDetails deductibleLeft={deductibleLeft}
         setDeductibleLeft={setDeductibleLeft}
         outOfPocketLeft={outOfPocketLeft}
